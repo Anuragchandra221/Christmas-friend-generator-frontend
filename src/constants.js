@@ -1,0 +1,5 @@
+export const base_url = "https://web-production-b91a.up.railway.app/"
+export const random = "random"
+export const reset = "reset"
+export const searchQuery = "search"
+export const count = "count"
