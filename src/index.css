@@ -122,6 +122,17 @@ code {
   .box {
     flex-direction: column;
   }
+  .App{
+    background-image: url('https://cdn.pixabay.com/photo/2022/11/28/05/12/christmas-balls-7621181__480.jpg');
+    background-color: #000; /* Used if the image is unavailable */
+    height: 100vh; /* You must set a specified height */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover;
+    font-family: brush;
+    color: #fff;
+    scroll-behavior: smooth;
+  }
   .inputDiv{
     width: 70%;
     margin-top: 10px;

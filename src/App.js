@@ -55,6 +55,7 @@ function App() {
             <a href='#' className='title my-3 mr-4 mr-lg-5'>home</a>
             <a href='#generator' className='title my-3 ml-2 ml-lg-3 mr-4 mr-lg-5 pr-0 pr-lg-4'>generator</a>
           </div>
+          
             <div className='ml-auto' style={{width: 'fit-content'}}>
               <hr className='line' />
             </div>
@@ -68,8 +69,9 @@ function App() {
               
           </div>
           <div className='w-100 mt-5 pt-4 d-flex justify-content-center align-items-center box'>
-            <p className='mr-3 ques'>Enter Your Name</p>
+            <p className='mr-3 ques'>Find Your Name</p>
             <div className='inputDiv'>
+              
                   <input type="text" className='input' placeholder='Enter your name' value={input} onChange={(e)=>{
                     setInput(e.target.value)
                     searchQuery()
