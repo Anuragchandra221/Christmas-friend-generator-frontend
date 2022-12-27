@@ -14,6 +14,7 @@ body {
 @font-face {
   font-family: brush;
   src: url('../assets/brush\ script\ mt\ kursiv.ttf')  format('truetype');
+  /* src: url('../assets/—Pngtree—white\ snowflake\ free\ illustration_4450872.png') */
 }
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
@@ -93,6 +94,8 @@ code {
 .suggestions{
   width: 30%;
   background-color: #000;
+  max-height: 332px;
+  overflow-y: scroll;
 }
 .suggestions button{
   text-align: start;
