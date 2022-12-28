@@ -2,8 +2,7 @@ import './App.css';
 import { useEffect, useState, useRef } from 'react';
 import Snowfall from 'react-snowfall';
 import Typewriter from  "typewriter-effect";
-import { countNumber, find_friend, get_random, search } from './services';
-import Friend from './Friend';
+import { countNumber, feed, find_friend, get_random, search } from './services';
 
 
 function App() {
@@ -15,6 +14,7 @@ function App() {
   const [number, setNumber] = useState(0)
   const [index, setIndex] = useState(0)
   const [curentText, setCurrentText] = useState('');
+  const [feedback, setFeedback] = useState()
 
   
     useEffect(()=>{
@@ -47,7 +47,10 @@ function App() {
       })
   }
 
-  
+
+  // const sendFeed = ()=>{
+  //   feed(feedback).then((results)=>{})
+  // }
 
   const get_friends = ()=>{
 
@@ -123,6 +126,19 @@ function App() {
               <p className='ques mt-5'>Friends left  {number? <span style={{color: "#BA8841"}}>{number}</span> :<></>}</p>
             </div>
             <hr style={{color: '#BA8841', border: '.5px solid #BA8841', width: '100vw', opacity: '0.5'}} />
+            <div className='d-flex justify-content-center align-items-center feedbackDiv mt-4'>
+              <h3 className='mr-auto mr-lg-3 pb-2 pb-lg-0 mb-auto ques'>Feedback</h3>
+              <div className='d-flex justify-content-center align-items-start feed'>
+                <textarea className='textarea' value={feedback} onChange={(e)=>{
+                    setFeedback(e.target.value)
+                  }} />
+                <button className='button w-100 mt-3' onClick={()=>{
+                  feed(feedback).then((results)=>{})
+                  setFeedback('')
+                }}>Submit</button>
+              </div>
+            </div>
+            {console.log(feedback)}
             <div className='mt-5 mb-5' >
               <h3 className='text-center' style={{color: "#BA8841"}}>
                 Let's Talk.

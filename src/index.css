@@ -20,36 +20,22 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-.type {
-  position: relative;
-  color: hsl(0, 0%, 68%);
-  font-weight: bold!important;
-  font-family: "Anonymous Pro", monospace!important;
-  letter-spacing: 7px!important;
-  overflow: hidden;
-  border-right: 2px solid hsl(0, 0%, 80%);
-  white-space: nowrap;
-  animation: typewriter 4s steps(44) 1s 1 normal both,
-    blinkTextCursor 500ms infinite;
+.feed{
+  flex-direction: column;
+  width: 500px;
 }
-
-@keyframes typewriter {
-  from {
-    width: 0;
-  }
-  to {
-    width: 710px;
-  }
+.textarea{
+  height: 300px;
+  width: 100%;
+  background-color: #000;
+  border: 2px solid #BA8841;
+  border-radius: 10px;
+  color: #fff;
+  padding: 10px
 }
-@keyframes blinkTextCursor {
-  from {
-    border-right-color: hsl(0, 0%, 80%);
-  }
-  to {
-    border-right-color: transparent;
-  }
+.textarea:focus{
+  outline: none;
 }
-
 .App{
   background-image: url(../assets/beautiful-composition-with-christmas-ornaments-white-background-removebg.png);
   background-color: #000; /* Used if the image is unavailable */
@@ -165,6 +151,7 @@ code {
     color: #fff;
     scroll-behavior: smooth;
   }
+  
   .inputDiv{
     width: 70%;
     margin-top: 10px;
@@ -190,6 +177,12 @@ code {
   .inputDiv{
     width: 90%;
     margin-top: 10px;
+  }
+  .feed{
+    width: 90vw;
+  }
+  .feedbackDiv{
+    flex-direction: column;
   }
   .question{
     font-size: 2.4em;

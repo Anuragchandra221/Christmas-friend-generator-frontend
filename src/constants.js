@@ -1,5 +1,7 @@
 export const base_url = "https://web-production-b91a.up.railway.app/"
+// export const base_url = "http://127.0.0.1:8000/"
 export const random = "random"
 export const reset = "reset"
 export const searchQuery = "search"
 export const count = "count"
+export const feedback = "feedback"
