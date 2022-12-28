@@ -129,7 +129,7 @@ function App() {
             <div className='d-flex justify-content-center align-items-center feedbackDiv mt-4'>
               <h3 className='mr-auto mr-lg-3 pb-2 pb-lg-0 mb-auto ques'>Feedback</h3>
               <div className='d-flex justify-content-center align-items-start feed'>
-                <textarea className='textarea' value={feedback} onChange={(e)=>{
+                <textarea placeholder='Leave your feedback here' className='textarea' value={feedback} onChange={(e)=>{
                     setFeedback(e.target.value)
                   }} />
                 <button className='button w-100 mt-3' onClick={()=>{
