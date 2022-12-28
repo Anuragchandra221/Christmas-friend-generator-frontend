@@ -1,8 +1,10 @@
 import './App.css';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import Snowfall from 'react-snowfall';
 import Typewriter from  "typewriter-effect";
 import { countNumber, find_friend, get_random, search } from './services';
+import Friend from './Friend';
+
 
 function App() {
   const [names, setNames] = useState()
@@ -11,12 +13,25 @@ function App() {
   const [err, setErr] = useState()
   const [input, setInput] = useState()
   const [number, setNumber] = useState(0)
+  const [index, setIndex] = useState(0)
+  const [curentText, setCurrentText] = useState('');
+
+  
+    useEffect(()=>{
+      if(name){
+        let msg = "Your friend is "+name.name
+        const timeoutid = setTimeout(() => {
+          setCurrentText(curentText.concat(msg.charAt(index)))
+          setIndex((prev)=>prev+1)
+      }, 150);
+      }
+  }, [curentText, name ])
+  
   useEffect(()=>{
     get_random().then((results)=>{
       if(results.data.msg){
 
       }else{
-        console.log(results.data)
         setNames(results.data)
       }
     })
@@ -24,7 +39,6 @@ function App() {
   useEffect(()=>{
     countNumber().then((results)=>{
       setNumber(results.data.remaining)
-      console.log(results.data.remaining)
     })
   },[name])
   const searchQuery = ()=>{
@@ -32,15 +46,20 @@ function App() {
         setValues(results.data)
       })
   }
-  console.log(values)
+
+  
+
   const get_friends = ()=>{
+
     find_friend(input).then((results)=>{
       if(results.data.msg){
+        setIndex(0)
+        setCurrentText('')
         setName()
-        console.log(results.data.msg)
-        console.log(name)
         setErr("You have already selected!")
       }else{
+        setIndex(0)
+        setCurrentText('')
         setErr()
         setName(results.data)
       }
@@ -49,7 +68,6 @@ function App() {
   if (names){
     return (
       <div>
-        
         <div className='App'>
           <div className=' d-flex justify-content-end align-items-start'>
             <a href='#' className='title my-3 mr-4 mr-lg-5'>home</a>
@@ -88,18 +106,20 @@ function App() {
             </div>
           </div>
             <button className='mx-2 button mt-5' onClick={get_friends}>Find your Christmas friend</button>
+            
             <div>
             <p className='mr-3 ques mt-5'>{name?
             <span style={{color: "#fff"}}>
-            <Typewriter
-              onInit={(typewriter)=> { typewriter.typeString("Your Friend is ").pauseFor(1000).typeString(`<span style=color:#BA8841;>${name.name}</span>`).start();}}/>
+              <p style={{color: "#fff"}}>{curentText}</p>
             </span>:
             err?
             <Typewriter
             onInit={(typewriter)=> { typewriter.typeString(err).start();}}/>
             :<></>}</p>
             </div>
-            <div>
+            
+          
+             <div>
               <p className='ques mt-5'>Friends left  {number? <span style={{color: "#BA8841"}}>{number}</span> :<></>}</p>
             </div>
             <hr style={{color: '#BA8841', border: '.5px solid #BA8841', width: '100vw', opacity: '0.5'}} />
