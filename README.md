@@ -1,4 +1,4 @@
-# GAvailable at
+# Available at
 https://bemyfriend.surge.sh
 
 ![cf home](https://user-images.githubusercontent.com/66366665/217453335-ab3735c2-e016-46ce-82e0-b67d01a5a33b.png)
